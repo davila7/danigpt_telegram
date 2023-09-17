@@ -13,7 +13,7 @@ agent_id= os.getenv("CODEGPT_AGENT_ID")
 bot = telebot.TeleBot(API_KEY)
 
 
-@bot.message_handler(commands=['danigpt'])
+@bot.message_handler(func=lambda message: True)
 def danigpt(message):
     clean_text = message.text.replace("/danigpt", "")
     url = 'https://plus.codegpt.co/api/v1/agent/'+agent_id
