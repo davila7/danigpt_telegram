@@ -10,7 +10,7 @@ Before running the code, make sure you have the following:
 - `streamlit`, `telebot`, `requests`, and `dotenv` libraries installed
 - A Telegram API key and CodeGPT API key
 
-Create an account in CodeGPT Plus in this link: https://account.codegpt.co
+Create a CodeGPT Plus account: https://account.codegpt.co
 
 ## Installation
 
