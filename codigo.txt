@@ -12,22 +12,8 @@ agent_id= os.getenv("CODEGPT_AGENT_ID")
 
 bot = telebot.TeleBot(API_KEY)
 
-import requests
 
-def post_serpapi(question: str):
-    url = "https://fastapi-render-danigpt.onrender.com/serpapi"
-    parametros = {
-        "question": question
-    }
-    respuesta = requests.post(url, json=parametros)
-    if respuesta.status_code == 200:
-        print("Solicitud POST exitosa")
-        print(respuesta.json())
-    else:
-        print("Error en la solicitud POST")
-
-
-@bot.message_handler(commands=['danigpt'])
+@bot.message_handler(func=lambda message: True)
 def danigpt(message):
     clean_text = message.text.replace("/danigpt", "")
     url = 'https://plus.codegpt.co/api/v1/agent/'+agent_id
