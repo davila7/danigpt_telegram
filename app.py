@@ -30,15 +30,17 @@ def post_serpapi(question: str):
 @bot.message_handler(commands=['danigpt'])
 def danigpt(message):
     clean_text = message.text.replace("/danigpt", "")
-    url = 'https://plus.codegpt.co/api/v1/agent/'+agent_id
+    url = 'https://api.codegpt.co/api/v1/chat/completions'
     headers = {"Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer "+api_key}
-    data = {
-        "messages": [
-            {
-                "role": "user",
-                "content": clean_text
-            }
-        ]
+    {
+      "agentId": agent_id,
+      "stream":true,
+      "format":"json"
+      "messages":
+      [{
+        "content": "What is the meaning of life?",
+        "role": "user"
+      }]
     }
 
     response = requests.post(url, headers=headers, json=data, stream=True)
